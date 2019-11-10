@@ -1,0 +1,56 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: mybatisplus-demo
+
+  profiles:
+    active: dev
+    #include: pro
+
+  security:
+    user:
+      name: user1
+      password: password1
+
+# http://localhost:8081/swagger-ui.html
+swagger:
+  title: spring-boot-starter-swagger
+  description: Starter for swagger 2.x
+  version: 1.4.0.RELEASE
+  license: Apache License, Version 2.0  # 许可证
+  licenseUrl: https://www.apache.org/licenses/LICENSE-2.0.html  # 许可证URL
+  termsOfServiceUrl: https://github.com/dyc87112/spring-boot-starter-swagger  # 服务条款URL
+  contact:
+    name: didi  # 维护人
+    url: http://blog.didispace.com  # 维护人URL
+    email: dyc87112@qq.com  # 维护人email
+    base-package: com.springboot  # swagger扫描的基础包，默认：全扫描
+    base-path: /**  # 需要处理的基础URL规则，默认：/**
+
+#mybatis-plus
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  typeAliasesPackage: com.springboot.demo.**.entity
+  global-config:
+    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+    id-type: 0
+    #字段策略 0:"忽略判断",1:"非 NULL 判断",2:"非空判断"
+    field-strategy: 1
+    #驼峰下划线转换
+    db-column-underline: true
+    #刷新mapper 调试神器
+    refresh-mapper: false
+    #序列接口实现类配置
+    #key-generator: com.baomidou.springboot.xxx
+    #逻辑删除配置
+    logic-delete-value: Y
+    logic-not-delete-value: N
+    # 是否大写命名
+    capital-mode: ${spring.datasource.capital-mode:false}
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    # 输出日志到控制台
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

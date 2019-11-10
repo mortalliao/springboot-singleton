@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.demo.auth.dao.AuthAccountLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.springboot.demo.auth.entity.bo.AuthAccountLog">
+        <id column="id" property="id"/>
+        <result column="version" property="version"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="create_by" property="createBy"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="log_name" property="logName"/>
+        <result column="user_id" property="userId"/>
+        <result column="succeed" property="succeed"/>
+        <result column="ip" property="ip"/>
+        <result column="message" property="message"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        version,
+        is_deleted AS isDeleted,
+        create_by AS createBy,
+        create_time AS createTime,
+        update_by AS updateBy,
+        update_time AS updateTime,
+        id, log_name, user_id, succeed, ip, message
+    </sql>
+
+    <!--<insert id="insertSelective" keyColumn="ID" keyProperty="id"-->
+            <!--parameterType="com.springboot.demo.auth.entity.bo.AuthAccountLog" useGeneratedKeys="true">-->
+        <!--insert into auth_account_log-->
+        <!--<trim prefix="(" suffix=")" suffixOverrides=",">-->
+            <!--<if test="logName != null">-->
+                <!--log_name,-->
+            <!--</if>-->
+            <!--<if test="userId != null">-->
+                <!--user_id,-->
+            <!--</if>-->
+            <!--<if test="ip != null">-->
+                <!--ip,-->
+            <!--</if>-->
+            <!--<if test="succeed != null">-->
+                <!--succeed,-->
+            <!--</if>-->
+            <!--<if test="message != null">-->
+                <!--message,-->
+            <!--</if>-->
+            <!--<if test="createTime != null">-->
+                <!--CREATE_TIME,-->
+            <!--</if>-->
+        <!--</trim>-->
+        <!--<trim prefix="values (" suffix=")" suffixOverrides=",">-->
+            <!--<if test="logName != null">-->
+                <!--#{logName,jdbcType=VARCHAR},-->
+            <!--</if>-->
+            <!--<if test="userId != null">-->
+                <!--#{userId,jdbcType=VARCHAR},-->
+            <!--</if>-->
+            <!--<if test="ip != null">-->
+                <!--#{ip,jdbcType=VARCHAR},-->
+            <!--</if>-->
+            <!--<if test="succeed != null">-->
+                <!--#{succeed,jdbcType=SMALLINT},-->
+            <!--</if>-->
+            <!--<if test="message != null">-->
+                <!--#{message,jdbcType=VARCHAR},-->
+            <!--</if>-->
+            <!--<if test="createTime != null">-->
+                <!--#{createTime,jdbcType=TIMESTAMP},-->
+            <!--</if>-->
+        <!--</trim>-->
+    <!--</insert>-->
+
+    <!--<select id="selectAccountLogList" resultMap="BaseResultMap">-->
+        <!--select * from auth_account_log order by create_time desc-->
+    <!--</select>-->
+
+</mapper>
